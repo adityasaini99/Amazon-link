@@ -1,2 +1,43 @@
 # Amazon-link
 Amazon Generated link
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<label>Enter Name: </label> <input id="name" type="text"/><br/>
+<label>Enter Income: </label> <input id="income" type="number"/><br/>
+<button onclick="reset()">Reset</button><button onclick="submit()">Submit</button><br/>
+<p id="nameOutput"></p>
+<p id="taxOutput"></p>
+
+
+<script>
+const submit = () => {
+let nameInputBox = document.getElementById("name")
+let incomeInputBox = document.getElementById("income")
+if(!nameInputBox.value || !incomeInputBox.value){
+window.alert("Please Enter Inputs")
+return;
+}
+let tax = 0;
+if(incomeInputBox.value<=50000){
+tax = (20 * incomeInputBox.value)/100
+}else {
+tax = (40 * incomeInputBox.value)/100
+}
+document.getElementById("nameOutput").innerHTML ="Name: " +  nameInputBox.value
+document.getElementById("taxOutput").innerHTML ="Tax: " + tax
+}
+
+function reset() {
+document.getElementById("name").value=""
+document.getElementById("income").value=""
+document.getElementById("nameOutput").innerHTML=""
+document.getElementById("taxOutput").innerHTML=""
+}
+</script>
+</body>
+</html>
